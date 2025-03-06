@@ -1,0 +1,32 @@
+# Min_prime
+
+def smallest_prime_digit(number):
+    prime_digits = {'2', '3', '5', '7'}  # Set of prime digits
+    min_prime = None  # Initialize as None to check if any prime digit exists
+
+    for digit in str(abs(number)):  # Convert number to string and handle negatives
+        if digit in prime_digits:
+            if min_prime is None or int(digit) < min_prime:
+                min_prime = int(digit)  # Update smallest prime digit
+
+    if min_prime is None:
+        return "No prime digit found!"
+    
+    return min_prime
+
+# Example usage
+number = int(input("Enter a number: "))
+print("Smallest prime digit:", smallest_prime_digit(number))
+
+#odds_sum
+
+def sum_of_odd_digits(number):
+    total = 0
+    for digit in str(abs(number)):  # Convert number to string to extract digits
+        if int(digit) % 2 != 0:  # Check if the digit is odd
+            total += int(digit)
+    return total
+
+# Example usage
+number = int(input("Enter a number: "))
+print("Sum of odd digits:", sum_of_odd_digits(number))
